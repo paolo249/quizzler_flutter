@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -11,18 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.amber,
-        body: SafeArea(child: QuizPage()),
-        
-      )
-
-    );
+        home: Scaffold(
+      backgroundColor: Colors.amber,
+      body: SafeArea(child: QuizPage()),
+    ));
   }
 }
-
-
-
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -31,11 +24,21 @@ class QuizPage extends StatefulWidget {
   State<QuizPage> createState() => _QuizPageState();
 }
 
-
-
 class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: <Widget>[
+        Expanded(child: Text('hELLO ')),
+        Expanded(
+            child: TextButton(
+          onPressed: () {
+            print('Hello');
+          },
+          child: Text('Button'),
+        )),
+        Expanded(child: Text('WORLD')),
+      ],
+    );
   }
 }
