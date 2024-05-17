@@ -27,18 +27,31 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(child: Text('hELLO ')),
-        Expanded(
-            child: TextButton(
-          onPressed: () {
-            print('Hello');
-          },
-          child: Text('Button'),
-        )),
-        Expanded(child: Text('WORLD')),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Expanded(flex: 5, child: Text('hELLO ')),
+          Row(
+            children: [
+              Expanded(
+                  child: TextButton(
+                onPressed: () {
+                  print('Button 1');
+                },
+                child: Text('Button 1', style: TextStyle(color: Colors.green)),
+              )),
+              Expanded(
+                  child: TextButton(
+                      onPressed: () {
+                        print('Button 2');
+                      },
+                      child: Text('Button 2'))),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
