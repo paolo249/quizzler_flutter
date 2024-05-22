@@ -25,16 +25,8 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Widget> scoreKeeper = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    )
-  ];
+  List<Widget> scoreKeeper = [];
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +53,9 @@ class _QuizPageState extends State<QuizPage> {
                 child: TextButton(
                   onPressed: () {
                     // print('Button 1');
-                    setState(() {
-                       scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-                    });
+                    // setState(() {
+                    //    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+                    // });
                    
                   },
                   child:
@@ -91,3 +83,9 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 }
+
+/*
+question 1: 'You can lead a cow down stairs but not up stairs.', false,
+question 2: 'Approximately one quarter of human bones are in the feet.', true,
+question 3: 'A slug\'s blood is green.', true,
+*/
