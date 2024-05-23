@@ -11,7 +11,15 @@ class Question {
 
   // }
 
-  // Dart constructor
-  Question(this.questionText, this.questionAnswer);
+ 
+// Using Named Parameter with required annotation
+  Question({required this.questionText, required this.questionAnswer});
 
+
+// Positional Parameter
+  // Question(String questionText, bool questionAnswer){
+  //   this.questionText = questionText;
+  //   this.questionAnswer = questionAnswer;
+
+  // }
 }

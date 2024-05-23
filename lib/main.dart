@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler_flutter/question.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,8 +32,13 @@ class _QuizPageState extends State<QuizPage> {
   'Approximately one quarter of human bones are in the feet.',
   'A slug\'s blood is green.'
   ];
-  int questionNumber = 0;
 
+  List<bool> answers = [false, true, true];
+  
+  Question q1 = Question(questionText: 'questions[0]', questionAnswer: true);
+  
+  int questionNumber = 0;
+  
 
   @override
   Widget build(BuildContext context) {
