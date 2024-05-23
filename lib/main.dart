@@ -63,10 +63,10 @@ class _QuizPageState extends State<QuizPage> {
                     //    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                     // });
                     setState(() {
-                      // if(questionNumber == 2){
-                      //   questionNumber == 0;
-                      // }
-                      // else{questionNumber++;}
+                      if(questionNumber == 2){
+                        return;
+                      }
+                      else{questionNumber++;}
                       
                     });
                    
