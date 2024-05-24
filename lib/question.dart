@@ -12,7 +12,7 @@ class Question {
   // }
 
  
-// Using Named Parameter with required annotation
+// Named Parameter with required annotation
   Question({required this.questionText, required this.questionAnswer});
 
 
@@ -20,6 +20,11 @@ class Question {
   // Question(String questionText, bool questionAnswer){
   //   this.questionText = questionText;
   //   this.questionAnswer = questionAnswer;
+  // }\
 
+
+  // Question({required String q, required bool a}){
+  //   questionText = q;
+  //   questionAnswer = a;
   // }
 }
