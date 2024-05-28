@@ -37,7 +37,7 @@ class _QuizPageState extends State<QuizPage> {
   //   Question(questionText: 'A slug\'s blood is green.', questionAnswer: true) 
   //   ];
   
-  int questionNumber = 0;
+  // int questionNumber = 0;
   
 
   @override
@@ -52,8 +52,7 @@ class _QuizPageState extends State<QuizPage> {
               flex: 5,
               child: Center(
                   child: Text(
-                  quizBrain.questionBank[questionNumber].questionText,
-
+                  quizBrain.getQuestionText(),
                 style: TextStyle(fontSize: 25.0, color: Colors.white),
                 // textAlign: TextAlign.center,
               ))),
@@ -69,14 +68,21 @@ class _QuizPageState extends State<QuizPage> {
                     // setState(() {
                     //    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                     // });
-                    setState(() {
-                      if(questionNumber == 12){
-                        return;
-                      }
-                      else{questionNumber++;}
-                      
-                    });
+                    // quizBrain.questionBank[questionNumber].questionAnswer = true;
+                    bool correctAnswer = quizBrain.getCorrectAnswer();
+
+                    if (correctAnswer == true){
+                      print('user got it right!');
+
+                    }else{
+                      print('user got it wrong!');
+
+                    }
                    
+                    setState(() {
+                      quizBrain.nextQuestion();
+                    });
+                  
                   },
                   child:
                       Text('True', style: TextStyle(color: Colors.green)),
@@ -89,13 +95,25 @@ class _QuizPageState extends State<QuizPage> {
                 // padding: const EdgeInsets.all(15.0),
                 child: TextButton(
                     onPressed: () {
+
+
+                    bool correctAnswer = quizBrain.getCorrectAnswer();
+                    
+                    if (correctAnswer == false){
+                      print('user got it right!');
+
+                    }else{
+                      print('user got it wrong!');
+
+                    }
                       // print('Button 2');
                       setState(() {
-
-                        scoreKeeper.add(Icon(Icons.close, color: Colors.red));
+                        quizBrain.nextQuestion();
                       });
                     },
-                    child: Text('False')),
+
+
+                    child: Text('False', style: TextStyle(color: Colors.red))),
               )),
             ],
           ),

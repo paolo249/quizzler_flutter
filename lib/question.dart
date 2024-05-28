@@ -2,9 +2,9 @@ class Question {
   // Dart doesn't use private, public, protected keywords
   // because it provides privacy at the library level, not the class level. 
   String questionText;
-  bool? questionAnswer;
+  bool questionAnswer;
 
-  Question(this.questionText, bool this.questionAnswer);
+  Question(this.questionText, this.questionAnswer);
 
 
 
