@@ -2,7 +2,11 @@ class Question {
   // Dart doesn't use private, public, protected keywords
   // because it provides privacy at the library level, not the class level. 
   String questionText;
-  bool questionAnswer;
+  bool? questionAnswer;
+
+  Question(this.questionText, bool this.questionAnswer);
+
+
 
   // Usual Java constructor
   // Question(String questionText, bool questionAnswer) {
@@ -13,7 +17,9 @@ class Question {
 
  
 // Named Parameter with required annotation
-  Question({required this.questionText, required this.questionAnswer});
+  // Question({required this.questionText, required this.questionAnswer});
+
+
 
 
 // Positional Parameter
@@ -28,3 +34,4 @@ class Question {
   //   questionAnswer = a;
   // }
 }
+

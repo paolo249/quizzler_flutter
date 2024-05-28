@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizzler_flutter/question.dart';
+// import 'package:quizzler_flutter/quiz_brain.dart';
+import 'quiz_brain.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -27,13 +29,13 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
-
+  QuizBrain quizBrain = QuizBrain();
   
-  List<Question> questionBank = [ 
-    Question(questionText: 'You can lead a cow down stairs but not up stairs.', questionAnswer: false), 
-    Question(questionText: 'Approximately one quarter of human bones are in the feet.', questionAnswer: true),
-    Question(questionText: 'A slug\'s blood is green.', questionAnswer: true) 
-    ];
+  // List<Question> questionBank = [ 
+  //   Question(questionText: 'You can lead a cow down stairs but not up stairs.', questionAnswer: false), 
+  //   Question(questionText: 'Approximately one quarter of human bones are in the feet.', questionAnswer: true),
+  //   Question(questionText: 'A slug\'s blood is green.', questionAnswer: true) 
+  //   ];
   
   int questionNumber = 0;
   
@@ -50,7 +52,8 @@ class _QuizPageState extends State<QuizPage> {
               flex: 5,
               child: Center(
                   child: Text(
-                  questionBank[questionNumber].questionText,
+                  quizBrain.questionBank[questionNumber].questionText,
+
                 style: TextStyle(fontSize: 25.0, color: Colors.white),
                 // textAlign: TextAlign.center,
               ))),
@@ -67,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
                     //    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                     // });
                     setState(() {
-                      if(questionNumber == 2){
+                      if(questionNumber == 12){
                         return;
                       }
                       else{questionNumber++;}
