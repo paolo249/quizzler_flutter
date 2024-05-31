@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 // import 'package:quizzler_flutter/quiz_brain.dart';
 import 'quiz_brain.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -30,15 +29,30 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
   QuizBrain quizBrain = QuizBrain();
-  
-  // List<Question> questionBank = [ 
-  //   Question(questionText: 'You can lead a cow down stairs but not up stairs.', questionAnswer: false), 
+
+  void checkAnswer(bool userPickedAnswer) {
+    bool correctAnswer = quizBrain.getCorrectAnswer();
+
+    if (userPickedAnswer == correctAnswer) {
+      print('user got it right!');
+      scoreKeeper.add(const Icon(Icons.check, color: Colors.green));
+    } else {
+      print('user got it wrong!');
+      scoreKeeper.add(const Icon(Icons.highlight_off, color: Colors.red));
+    }
+
+    setState(() {
+      quizBrain.nextQuestion();
+    });
+  }
+
+  // List<Question> questionBank = [
+  //   Question(questionText: 'You can lead a cow down stairs but not up stairs.', questionAnswer: false),
   //   Question(questionText: 'Approximately one quarter of human bones are in the feet.', questionAnswer: true),
-  //   Question(questionText: 'A slug\'s blood is green.', questionAnswer: true) 
+  //   Question(questionText: 'A slug\'s blood is green.', questionAnswer: true)
   //   ];
-  
+
   // int questionNumber = 0;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +66,7 @@ class _QuizPageState extends State<QuizPage> {
               flex: 5,
               child: Center(
                   child: Text(
-                  quizBrain.getQuestionText(),
+                quizBrain.getQuestionText(),
                 style: TextStyle(fontSize: 25.0, color: Colors.white),
                 // textAlign: TextAlign.center,
               ))),
@@ -69,23 +83,11 @@ class _QuizPageState extends State<QuizPage> {
                     //    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                     // });
                     // quizBrain.questionBank[questionNumber].questionAnswer = true;
-                    bool correctAnswer = quizBrain.getCorrectAnswer();
+                   checkAnswer(true);
 
-                    if (correctAnswer == true){
-                      print('user got it right!');
-
-                    }else{
-                      print('user got it wrong!');
-
-                    }
-                   
-                    setState(() {
-                      quizBrain.nextQuestion();
-                    });
-                  
                   },
-                  child:
-                      Text('True', style: TextStyle(color: Colors.green)),
+
+                  child: Text('True', style: TextStyle(color: Colors.green)),
                 ),
               )),
               Expanded(
@@ -95,24 +97,8 @@ class _QuizPageState extends State<QuizPage> {
                 // padding: const EdgeInsets.all(15.0),
                 child: TextButton(
                     onPressed: () {
-
-
-                    bool correctAnswer = quizBrain.getCorrectAnswer();
-                    
-                    if (correctAnswer == false){
-                      print('user got it right!');
-
-                    }else{
-                      print('user got it wrong!');
-
-                    }
-                      // print('Button 2');
-                      setState(() {
-                        quizBrain.nextQuestion();
-                      });
+                      checkAnswer(false);
                     },
-
-
                     child: Text('False', style: TextStyle(color: Colors.red))),
               )),
             ],
