@@ -35,8 +35,9 @@ class QuizBrain {
       if(_questionNumber< _questionBank.length-1){
         _questionNumber++;
       }
-      // print(_questionNumber);
-      // print(_questionBank.length);
+      print(_questionNumber);
+      print(_questionBank.length);
+      print(getCorrectAnswer());
     }
 
     String getQuestionText(){
