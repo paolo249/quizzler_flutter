@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.black,
       body: SafeArea(child: QuizPage()),
     ));
   }
@@ -35,7 +35,14 @@ class _QuizPageState extends State<QuizPage> {
     bool correctAnswer = quizBrain.getCorrectAnswer();
 
     setState(() {
-      if (scoreKeeper.length <= 12) {
+      // if (scoreKeeper.length <= 12) {
+      /*
+      TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. 
+      1) If so, show an alert using rFlutter_alert
+      2) reset questionNumber
+      3) empty out the scorekeeper
+      */
+
         if (userPickedAnswer == correctAnswer) {
           print('user got it right!');
 
@@ -45,7 +52,8 @@ class _QuizPageState extends State<QuizPage> {
           scoreKeeper.add(const Icon(Icons.highlight_off, color: Colors.red));
         }
         quizBrain.nextQuestion();
-      }
+        quizBrain.isFinished();
+      // }
     });
   }
 

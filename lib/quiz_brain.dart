@@ -48,4 +48,15 @@ class QuizBrain {
       return _questionBank[_questionNumber].questionAnswer;
     }
 
+    //TODO: Step 3 - Create a method called is isFinished() here that checks to see if we are at the end of the quiz
+    bool isFinished(){
+      if(_questionNumber == _questionBank.length-1){
+        print("end");
+      }
+      else{
+        print("not yet finished");
+      }
+    
+      return true;
+    }
 }
