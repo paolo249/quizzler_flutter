@@ -50,7 +50,7 @@ class QuizBrain {
 
     //TODO: Step 3 - Create a method called is isFinished() here that checks to see if we are at the end of the quiz
     bool isFinished(){
-      bool? isFalse = false;
+      bool isFalse = false;
       if(_questionNumber == _questionBank.length-1){
         print("end");
         isFalse = true;

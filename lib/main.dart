@@ -42,10 +42,13 @@ class _QuizPageState extends State<QuizPage> {
       2) reset questionNumber
       3) empty out the scorekeeper
       */
-
+        if(quizBrain.isFinished() == true){
+           Alert(context: context, title: "Finished", desc: "You've reached the end of your quiz.").show();
+        }
+         
+       else{
         if (userPickedAnswer == correctAnswer) {
           print('user got it right!');
-
           scoreKeeper.add(const Icon(Icons.check, color: Colors.green));
         } else {
           print('user got it wrong!');
@@ -53,8 +56,12 @@ class _QuizPageState extends State<QuizPage> {
         }
         quizBrain.nextQuestion();
         quizBrain.isFinished();
-      // }
+        
+       }
+  
+
     });
+  
   }
 
 
